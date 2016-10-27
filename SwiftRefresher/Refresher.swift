@@ -114,14 +114,16 @@ open class Refresher: UIView {
         guard let _ = object else { return }
         
         if keyPath == "contentInset" {
-            if let value = change["new"] as? NSValue {
-                contentInset = value.UIEdgeInsetsValue
+            let key = NSKeyValueChangeKey(rawValue: "new")
+            if let value = change[key] as? NSValue {
+                contentInset = value.uiEdgeInsetsValue
             }
         }
         
         if keyPath == "contentOffset" {
-            if let value = change["new"] as? NSValue {
-                contentOffset = value.CGPointValue
+            let key = NSKeyValueChangeKey(rawValue: "new")
+            if let value = change[key] as? NSValue {
+                contentOffset = value.cgPointValue
             }
         }
         
